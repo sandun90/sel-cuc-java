@@ -18,6 +18,8 @@ public class DriverFactory {
                     webDriver= new FirefoxDriver();
                     break;
                 default:
+/*                    WebDriverManager.chromedriver().clearDriverCache().setup();
+                    WebDriverManager.chromedriver().clearResolutionCache().setup();*/
                     WebDriverManager.chromedriver().setup();
                     ChromeOptions options = new ChromeOptions();
                     options.addArguments("--remote-allow-origins=*");

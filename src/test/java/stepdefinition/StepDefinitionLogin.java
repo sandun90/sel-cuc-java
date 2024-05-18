@@ -1,10 +1,10 @@
 package stepdefinition;
 
-import cucumber.api.java.After;
-import cucumber.api.java.Before;
-import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
+import io.cucumber.java.After;
+import io.cucumber.java.Before;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import driver.DriverFactory;
 import driver.DriverHolder;
 import org.junit.Assert;
@@ -25,21 +25,21 @@ public class StepDefinitionLogin {
         // open the given url
         driver.manage().window().maximize();
     }
-
-    @Given("^I navigate to \"([^\"]*)\"$")
-    public void i_navigate_to(String url) throws Throwable {
-        // open the given url
+    @Given("I navigate to {string}")
+    public void i_navigate_to(String url) {
         driver.get(url);
         loginPage=new LoginPage(driver);
     }
 
-    @When("^Login using user name \"([^\"]*)\" and password \"([^\"]*)\"$")
-    public void login_using_user_name_and_password(String username, String password) throws Throwable {
+    @When("Login using user name {string} and password {string}")
+    public void login_using_user_name_and_password(String username, String password) {
+        // Write code here that turns the phrase above into concrete actions
         loginPage.enterEmail(username).enterPassword(password).clickOnLoginButton();
     }
 
-    @Then("^User should get successfully logged in$")
-    public void user_should_get_successfully_logged_in() throws Throwable {
+    @Then("User should get successfully logged in")
+    public void user_should_get_successfully_logged_in() {
+        // Write code here that turns the phrase above into concrete actions
         homePage=new HomePage(driver);
         // Write code here that turns the phrase above into concrete actions
         Assert.assertTrue(homePage.homePageLoaded());

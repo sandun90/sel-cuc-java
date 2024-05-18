@@ -23,7 +23,7 @@ public class LoginPage extends BasePage{
         return this;
     }
 
-    public void clickOnLoginButton() throws InterruptedException {
+    public void clickOnLoginButton() {
         btnSignIn.click();
     }
 
